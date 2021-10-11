@@ -9,6 +9,7 @@ class InitialScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     PageController pageController = PageController();
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Column(
@@ -30,7 +31,7 @@ class InitialScreen extends StatelessWidget {
                 controller: pageController,
                 children: [
                   Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       SvgPicture.asset(
@@ -44,7 +45,7 @@ class InitialScreen extends StatelessWidget {
                     ],
                   ),
                   Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       SvgPicture.asset(
@@ -58,7 +59,7 @@ class InitialScreen extends StatelessWidget {
                     ],
                   ),
                   Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       SvgPicture.asset(
@@ -75,7 +76,7 @@ class InitialScreen extends StatelessWidget {
               ),
             ),
             Container(
-                padding: const EdgeInsets.all(50),
+                padding: const EdgeInsets.only(bottom: 50),
                 child: Center(
                   child: SmoothPageIndicator(
                     controller: pageController,

@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-class RegisterScreen extends StatelessWidget {
+class RegisterScreen extends StatefulWidget {
   const RegisterScreen({Key? key}) : super(key: key);
+
+  @override
+  State<RegisterScreen> createState() => _RegisterScreenState();
+}
+
+class _RegisterScreenState extends State<RegisterScreen> {
+  bool _obscuretext = true;
 
   @override
   Widget build(BuildContext context) {
@@ -46,12 +53,25 @@ class RegisterScreen extends StatelessWidget {
                   height: 20,
                 ),
                 TextField(
-                  obscureText: true,
-                  enableSuggestions: false,
-                  autocorrect: false,
+                  obscureText: _obscuretext,
+                  // enableSuggestions: false,
+                  // autocorrect: false,
                   decoration: InputDecoration(
                     border: const UnderlineInputBorder(),
                     labelText: "Password",
+                    suffixIcon: InkWell(
+                      child: Icon(
+                        _obscuretext
+                            ? Icons.visibility_off_outlined
+                            : Icons.visibility_outlined,
+                        color: _obscuretext ? Colors.grey : HexColor("#007FFF"),
+                      ),
+                      onTap: () {
+                        setState(() {
+                          _obscuretext = !_obscuretext;
+                        });
+                      },
+                    ),
                     hintText: "Enter password",
                     labelStyle: TextStyle(
                       color: HexColor("#007FFF"),
@@ -66,12 +86,12 @@ class RegisterScreen extends StatelessWidget {
                 ),
                 TextField(
                   obscureText: true,
-                  enableSuggestions: false,
-                  autocorrect: false,
+                  // enableSuggestions: false,
+                  // autocorrect: false,
                   decoration: InputDecoration(
                     border: const UnderlineInputBorder(),
-                    labelText: "Confirm password",
-                    hintText: "Re-enter password",
+                    labelText: "Confirm Password",
+                    hintText: "Re-Enter password",
                     labelStyle: TextStyle(
                       color: HexColor("#007FFF"),
                     ),
@@ -101,12 +121,89 @@ class RegisterScreen extends StatelessWidget {
                     ),
                     ElevatedButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, '/home');
+                        showModalBottomSheet(
+                          isDismissible: true,
+                          shape: const RoundedRectangleBorder(
+                              borderRadius: BorderRadius.vertical(
+                            top: Radius.circular(20),
+                          )),
+                          context: context,
+                          builder: (context) => Positioned(
+                            bottom: MediaQuery.of(context).viewInsets.bottom,
+                            left: 0,
+                            right: 0,
+                            child: Padding(
+                              padding: const EdgeInsets.all(50),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  TextField(
+                                    textAlign: TextAlign.center,
+                                    decoration: InputDecoration(
+                                      filled: true,
+                                      fillColor: HexColor("#E1EBEE"),
+                                      hintText: "CODE",
+                                      focusColor: HexColor("#007FFF"),
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    height: 30,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      TextButton(
+                                        onPressed: () {},
+                                        child: const Text(
+                                          "Resend code",
+                                          style: TextStyle(
+                                              color: Color.fromRGBO(
+                                                  0, 127, 255, 1),
+                                              fontSize: 16),
+                                        ),
+                                        style: TextButton.styleFrom(
+                                          splashFactory: NoSplash.splashFactory,
+                                        ),
+                                      ),
+                                      ElevatedButton(
+                                        onPressed: () {
+                                          Navigator.pushNamed(
+                                              context, '/userform');
+                                        },
+                                        style: ElevatedButton.styleFrom(
+                                          primary: const Color.fromRGBO(
+                                              0, 127, 255, 1),
+                                          fixedSize: const Size.fromWidth(150),
+                                          shape: const RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.all(
+                                                  Radius.circular(25))),
+                                        ),
+                                        child: const Text(
+                                          'Verify',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 16,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        );
                       },
                       style: ElevatedButton.styleFrom(
                         primary: const Color.fromRGBO(0, 127, 255, 1),
                         fixedSize: const Size.fromWidth(150),
                         elevation: 3,
+                        shape: const RoundedRectangleBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(25))),
                       ),
                       child: const Text(
                         'Proceed',

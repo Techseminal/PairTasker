@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  bool _obscuretext = true;
 
   @override
   Widget build(BuildContext context) {
@@ -46,12 +53,25 @@ class LoginScreen extends StatelessWidget {
                   height: 20,
                 ),
                 TextField(
-                  obscureText: true,
-                  enableSuggestions: false,
-                  autocorrect: false,
+                  obscureText: _obscuretext,
+                  // enableSuggestions: false,
+                  // autocorrect: false,
                   decoration: InputDecoration(
                     border: const UnderlineInputBorder(),
                     labelText: "Password",
+                    suffixIcon: InkWell(
+                      child: Icon(
+                        _obscuretext
+                            ? Icons.visibility_off_outlined
+                            : Icons.visibility_outlined,
+                        color: _obscuretext ? Colors.grey : HexColor("#007FFF"),
+                      ),
+                      onTap: () {
+                        setState(() {
+                          _obscuretext = !_obscuretext;
+                        });
+                      },
+                    ),
                     hintText: "Enter password",
                     labelStyle: TextStyle(
                       color: HexColor("#007FFF"),
@@ -105,6 +125,9 @@ class LoginScreen extends StatelessWidget {
                       style: ElevatedButton.styleFrom(
                         primary: const Color.fromRGBO(0, 127, 255, 1),
                         fixedSize: const Size.fromWidth(150),
+                        shape: const RoundedRectangleBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(25))),
                       ),
                       child: const Text(
                         'Login',
@@ -115,7 +138,7 @@ class LoginScreen extends StatelessWidget {
                       ),
                     ),
                   ],
-                )
+                ),
               ],
             ),
           ),
