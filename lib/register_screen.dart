@@ -122,16 +122,18 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ElevatedButton(
                       onPressed: () {
                         showModalBottomSheet(
+                          isScrollControlled: true,
                           isDismissible: true,
                           shape: const RoundedRectangleBorder(
-                              borderRadius: BorderRadius.vertical(
-                            top: Radius.circular(20),
-                          )),
+                            borderRadius: BorderRadius.vertical(
+                              top: Radius.circular(20),
+                            ),
+                          ),
                           context: context,
-                          builder: (context) => Positioned(
-                            bottom: MediaQuery.of(context).viewInsets.bottom,
-                            left: 0,
-                            right: 0,
+                          builder: (context) => Container(
+                            padding: EdgeInsets.only(
+                              bottom: MediaQuery.of(context).viewInsets.bottom,
+                            ),
                             child: Padding(
                               padding: const EdgeInsets.all(50),
                               child: Column(
