@@ -38,6 +38,9 @@ dependencies:
   google_fonts: ^2.1.0
   flutter_svg: ^0.22.0
   smooth_page_indicator: any
+  intl: ^0.17.0
+  lite_rolling_switch: ^0.1.1
+  font_awesome_flutter: ^9.1.0
 
 dev_dependencies:
   flutter_test:
