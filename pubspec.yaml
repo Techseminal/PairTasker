@@ -39,6 +39,9 @@ dependencies:
   flutter_svg: ^0.22.0
   smooth_page_indicator: any
   share_plus: ^3.0.4
+  intl: ^0.17.0
+  lite_rolling_switch: ^0.1.1
+  font_awesome_flutter: ^9.1.0
 
 dev_dependencies:
   flutter_test:
