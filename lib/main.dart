@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pair_tasker/home_screen.dart';
-import 'package:pair_tasker/initial_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:pair_tasker/login_page.dart';
-import 'package:pair_tasker/register_screen.dart';
-import 'package:pair_tasker/user_details_form.dart';
+import 'screens/screens.dart';
 
 void main() {
   runApp(const MyApp());

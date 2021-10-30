@@ -104,6 +104,14 @@ class HomePage extends StatelessWidget {
                 ],
               ),
             ),
+            Center(
+              child: ElevatedButton(
+                child: const Text('Share'),
+                onPressed: () {
+                  Share.share('Join PairTasker and be Self-Employed, Download the app now!! https://PairTasker.com Referral Code: PT0001');
+                },
+              ),
+            )
           ],
         ),
       ),

@@ -130,69 +130,74 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             ),
                           ),
                           context: context,
-                          builder: (context) => Padding(
-                            padding: const EdgeInsets.all(50),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                TextField(
-                                  textAlign: TextAlign.center,
-                                  style: const TextStyle(
-                                    fontSize: 20,
-                                  ),
-                                  decoration: InputDecoration(
-                                    filled: true,
-                                    fillColor: HexColor("#E1EBEE"),
-                                    hintText: "CODE",
-                                    focusColor: HexColor("#007FFF"),
-                                  ),
-                                ),
-                                const SizedBox(
-                                  height: 30,
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    TextButton(
-                                      onPressed: () {},
-                                      child: const Text(
-                                        "Resend code",
-                                        style: TextStyle(
-                                            color:
-                                                Color.fromRGBO(0, 127, 255, 1),
-                                            fontSize: 16),
-                                      ),
-                                      style: TextButton.styleFrom(
-                                        splashFactory: NoSplash.splashFactory,
-                                      ),
+                          builder: (context) => Container(
+                            padding: EdgeInsets.only(
+                              bottom: MediaQuery.of(context).viewInsets.bottom,
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(50),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  TextField(
+                                    textAlign: TextAlign.center,
+                                    style: const TextStyle(
+                                      fontSize: 20,
                                     ),
-                                    ElevatedButton(
-                                      onPressed: () {
-                                        Navigator.pushNamed(
-                                            context, '/userform');
-                                      },
-                                      style: ElevatedButton.styleFrom(
-                                        primary: const Color.fromRGBO(
-                                            0, 127, 255, 1),
-                                        fixedSize: const Size.fromWidth(150),
-                                        shape: const RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.all(
-                                                Radius.circular(25))),
-                                      ),
-                                      child: const Text(
-                                        'Verify',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 16,
+                                    decoration: InputDecoration(
+                                      filled: true,
+                                      fillColor: HexColor("#E1EBEE"),
+                                      hintText: "CODE",
+                                      focusColor: HexColor("#007FFF"),
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    height: 30,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      TextButton(
+                                        onPressed: () {},
+                                        child: const Text(
+                                          "Resend code",
+                                          style: TextStyle(
+                                              color: Color.fromRGBO(
+                                                  0, 127, 255, 1),
+                                              fontSize: 16),
+                                        ),
+                                        style: TextButton.styleFrom(
+                                          splashFactory: NoSplash.splashFactory,
                                         ),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              ],
+                                      ElevatedButton(
+                                        onPressed: () {
+                                          Navigator.pushNamed(
+                                              context, '/userform');
+                                        },
+                                        style: ElevatedButton.styleFrom(
+                                          primary: const Color.fromRGBO(
+                                              0, 127, 255, 1),
+                                          fixedSize: const Size.fromWidth(150),
+                                          shape: const RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.all(
+                                                  Radius.circular(25))),
+                                        ),
+                                        child: const Text(
+                                          'Verify',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 16,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         );
